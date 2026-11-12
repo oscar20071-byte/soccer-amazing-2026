@@ -346,6 +346,8 @@ document.getElementById('back-menu').addEventListener('click', () => {
 const transferMarket = document.getElementById('transfer-market');
 
 document.getElementById('open-market').addEventListener('click', () => {
+  alert('EL BOTÓN BUSCAR CLUB FUNCIONA');
+  
   careerMenu.hidden = true;
   transferMarket.hidden = false;
 
