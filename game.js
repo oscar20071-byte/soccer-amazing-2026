@@ -333,7 +333,7 @@ document.getElementById('create-player').addEventListener('click', () => {
     `${player.name} | ${player.position} | Media ${player.overall} | ${player.club}`;
 
   document.getElementById('career-result').hidden = false;
-
+  document.getElementById('open-market').hidden = false;
   console.log('Carrera creada:', player);
 });
 
