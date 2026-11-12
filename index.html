@@ -26,11 +26,38 @@
       <button id="start-career">COMENZAR CARRERA</button>
     </section>
 
-    <section id="career-menu" hidden>
-      <h2>MI CARRERA</h2>
-      <p>Bienvenido al fútbol profesional.</p>
-      <button id="back-menu">VOLVER</button>
-    </section>
+    
+<section id="career-menu" hidden>
+  <h2>CREA TU FUTBOLISTA</h2>
+  <p>Comienza tu camino hacia el fútbol profesional.</p>
+
+  <input
+    id="player-name"
+    type="text"
+    placeholder="Nombre de tu futbolista"
+    maxlength="24"
+  >
+
+  <select id="player-position">
+    <option value="DC">Delantero centro</option>
+    <option value="EI">Extremo izquierdo</option>
+    <option value="ED">Extremo derecho</option>
+    <option value="MC">Mediocampista</option>
+    <option value="MCD">Mediocentro defensivo</option>
+    <option value="DFC">Defensa central</option>
+    <option value="POR">Portero</option>
+  </select>
+
+  <button id="create-player">CREAR CARRERA</button>
+
+  <div id="career-result" hidden>
+    <h3>¡TU CARRERA HA COMENZADO!</h3>
+    <p id="career-info"></p>
+  </div>
+
+  <button id="back-menu">VOLVER</button>
+</section>
+
 
     <div id="game-container"></div>
   </main>
