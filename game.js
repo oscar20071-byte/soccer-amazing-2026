@@ -295,6 +295,9 @@ function updateCamera() {
 
 // MENÚS
 
+
+// MENÚS Y CARRERA PROFESIONAL
+
 const mainMenu = document.getElementById('main-menu');
 const careerMenu = document.getElementById('career-menu');
 
@@ -303,10 +306,45 @@ document.getElementById('start-career').addEventListener('click', () => {
   careerMenu.hidden = false;
 });
 
+document.getElementById('create-player').addEventListener('click', () => {
+  const name = document.getElementById('player-name').value.trim();
+  const position = document.getElementById('player-position').value;
+
+  if (!name) {
+    alert('Escribe el nombre de tu futbolista.');
+    return;
+  }
+
+  const player = {
+    name: name,
+    position: position,
+    overall: 60,
+    age: 18,
+    club: 'Agente libre',
+    season: 2026,
+    goals: 0,
+    assists: 0,
+    appearances: 0
+  };
+
+  localStorage.setItem(
+    'soccerAmazingCareer',
+    JSON.stringify(player)
+  );
+
+  document.getElementById('career-info').textContent =
+    `${player.name} | ${player.position} | Media ${player.overall} | ${player.club}`;
+
+  document.getElementById('career-result').hidden = false;
+
+  console.log('Carrera creada:', player);
+});
+
 document.getElementById('back-menu').addEventListener('click', () => {
   careerMenu.hidden = true;
   mainMenu.hidden = false;
 });
+
 
 // AJUSTAR PANTALLA
 
