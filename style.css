@@ -1,1 +1,140 @@
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #071b16;
+  color: white;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+}
+
+#game {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at center, #164b32 0%, #071b16 75%);
+}
+
+.topbar {
+  min-height: 75px;
+  padding: 20px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  background: rgba(0, 0, 0, 0.35);
+  border-bottom: 1px solid #27784b;
+}
+
+.topbar h1 {
+  font-size: 22px;
+  color: #ffffff;
+}
+
+.topbar span {
+  color: #61e995;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+#main-menu,
+#career-menu {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 25px;
+  gap: 22px;
+}
+
+#main-menu h2,
+#career-menu h2 {
+  font-size: clamp(25px, 5vw, 48px);
+  color: #ffffff;
+}
+
+#main-menu p,
+#career-menu p {
+  color: #b9d9c4;
+  font-size: 17px;
+}
+
+button {
+  background: #20c66b;
+  color: #061b10;
+  border: none;
+  padding: 17px 30px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #58f49a;
+  transform: scale(1.04);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+#game-container {
+  width: 100%;
+  min-height: 0;
+}
+
+#game-container canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#loading {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background: #071b16;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+#loading h1 {
+  color: #35e881;
+  text-align: center;
+}
+
+#loading p {
+  color: white;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 600px) {
+  .topbar {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .topbar h1 {
+    font-size: 18px;
+  }
+
+  button {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
