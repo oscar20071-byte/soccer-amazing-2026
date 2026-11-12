@@ -293,9 +293,6 @@ function updateCamera() {
   camera.lookAt(0, 0, 0);
 }
 
-// MENÚS
-
-
 // MENÚS Y CARRERA PROFESIONAL
 
 const mainMenu = document.getElementById('main-menu');
@@ -343,6 +340,71 @@ document.getElementById('create-player').addEventListener('click', () => {
 document.getElementById('back-menu').addEventListener('click', () => {
   careerMenu.hidden = true;
   mainMenu.hidden = false;
+});
+// MERCADO DE FICHAJES
+
+const transferMarket = document.getElementById('transfer-market');
+
+document.getElementById('open-market').addEventListener('click', () => {
+  careerMenu.hidden = true;
+  transferMarket.hidden = false;
+
+  const offers = [
+    { club: 'Real Madrid', salary: 12000 },
+    { club: 'FC Barcelona', salary: 11000 },
+    { club: 'Manchester City', salary: 13000 },
+    { club: 'Borussia Dortmund', salary: 8000 },
+    { club: 'Atlético de Madrid', salary: 9500 },
+    { club: 'Leones Del Caribe', salary: 95000 },
+  ];
+
+  const offersContainer = document.getElementById('transfer-offers');
+
+  offersContainer.innerHTML = '';
+
+  offers.forEach((offer, index) => {
+    const card = document.createElement('div');
+    card.className = 'offer-card';
+
+    card.innerHTML = `
+      <h3>${offer.club}</h3>
+      <p>Salario semanal: €${offer.salary.toLocaleString('es-ES')}</p>
+      <button data-offer="${index}">FICHAR</button>
+    `;
+
+    offersContainer.appendChild(card);
+  });
+
+  offersContainer.querySelectorAll('button').forEach(button => {
+    button.addEventListener('click', () => {
+      const offer = offers[Number(button.dataset.offer)];
+
+      const player = JSON.parse(
+        localStorage.getItem('soccerAmazingCareer')
+      );
+
+      player.club = offer.club;
+      player.salary = offer.salary;
+
+      localStorage.setItem(
+        'soccerAmazingCareer',
+        JSON.stringify(player)
+      );
+
+      alert(`¡Has fichado por ${offer.club}!`);
+
+      transferMarket.hidden = true;
+      careerMenu.hidden = false;
+
+      document.getElementById('career-info').textContent =
+        `${player.name} | ${player.position} | Media ${player.overall} | ${player.club}`;
+    });
+  });
+});
+
+document.getElementById('back-career').addEventListener('click', () => {
+  transferMarket.hidden = true;
+  careerMenu.hidden = false;
 });
 
 
