@@ -354,8 +354,7 @@ document.getElementById('open-market').addEventListener('click', () => {
     { club: 'FC Barcelona', salary: 11000 },
     { club: 'Manchester City', salary: 13000 },
     { club: 'Borussia Dortmund', salary: 8000 },
-    { club: 'Atlético de Madrid', salary: 9500 },
-    { club: 'Leones Del Caribe', salary: 95000 },
+    { club: 'Atlético de Madrid', salary: 9500 }
   ];
 
   const offersContainer = document.getElementById('transfer-offers');
